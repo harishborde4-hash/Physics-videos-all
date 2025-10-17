@@ -1,272 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elphinstone College - FYJC Test Portal</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physics Videos - Board Preparation</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a2e0e6adf3.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="stars"></div>
-    <div class="twinkling"></div>
-
-    <header>
-        <div class="header-content">
-            <div class="college-info">
-                <i class="fas fa-graduation-cap"></i>
-                <div>
-                    <h1>Elphinstone College</h1>
-                    <p class="tagline">FYJC Test Portal</p>
-                </div>
-            </div>
-            <nav class="main-nav">
-                <button class="nav-btn active" onclick="showSection('test')">
-                    <i class="fas fa-pen-to-square"></i> Tests
-                </button>
-                <button class="nav-btn" onclick="showSection('syllabus')">
-                    <i class="fas fa-book"></i> Syllabus
-                </button>
-            </nav>
-        </div>
+  <main class="container">
+    <!-- Header -->
+    <header class="welcome-header">
+      <button class="back-btn" id="backBtn">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <div class="welcome-text">
+        <h1>Physics Videos - Board Prep</h1>
+        <p>Elphinstone College</p>
+      </div>
     </header>
 
-    <div class="motivation-banner">
-        <p class="motivation-text" id="motivationText"></p>
+    <!-- Instruction Banner -->
+    <div class="instruction-banner">
+      <p>Click on any chapter below to view the video on <strong>YouTube</strong>.</p>
     </div>
 
-    <main class="container">
-        <section id="test-section" class="section active">
-            <div class="section-header">
-                <h2><i class="fas fa-clipboard-check"></i> Subject Tests</h2>
-                <p>Select a subject and chapter to start your test</p>
-            </div>
+    <!-- Chapter List -->
+    <div class="subject-list">
+      <div class="subject" data-url="https://youtu.be/X6k6T4T2lSk?si=VPZytFa90b5pXpmG">
+        <i class="fas fa-ruler icon"></i>
+        <h3>Units and Measurement</h3>
+      </div>
 
-            <div class="subjects-grid">
-                <div class="subject-card" onclick="showSubjectTests('physics')">
-                    <div class="subject-icon physics-icon">
-                        <i class="fas fa-atom"></i>
-                    </div>
-                    <h3>Physics</h3>
-                    <p>4 Chapters Available</p>
-                    <span class="badge">15 MCQs Each</span>
-                </div>
+      <div class="subject" data-url="https://www.youtube.com/live/nq8WcyGDbmE?si=KVT78H6OKMm9mOwp">
+        <i class="fas fa-calculator icon"></i>
+        <h3>Mathematical Methods</h3>
+      </div>
 
-                <div class="subject-card" onclick="showSubjectTests('chemistry')">
-                    <div class="subject-icon chemistry-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>Chemistry</h3>
-                    <p>4 Chapters Available</p>
-                    <span class="badge">15 MCQs Each</span>
-                </div>
+      <div class="subject" data-url="https://youtu.be/2q2sUJrOm74?si=7t1X2PdtqnIjb2_z">
+        <i class="fas fa-project-diagram icon"></i>
+        <h3>Motion in a Plane</h3>
+      </div>
 
-                <div class="subject-card" onclick="showSubjectTests('mathematics')">
-                    <div class="subject-icon math-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Mathematics</h3>
-                    <p>2 Chapters Available</p>
-                    <span class="badge">15 MCQs Each</span>
-                </div>
+      <div class="subject" data-url="https://youtu.be/EN0EWTwk9-w?si=IAp1bAyYW-r_mkg">
+        <i class="fas fa-balance-scale icon"></i>
+        <h3>Laws of Motion</h3>
+      </div>
 
-                <div class="subject-card" onclick="showSubjectTests('biology')">
-                    <div class="subject-icon biology-icon">
-                        <i class="fas fa-dna"></i>
-                    </div>
-                    <h3>Biology</h3>
-                    <p>4 Chapters Available</p>
-                    <span class="badge">15 MCQs Each</span>
-                </div>
-            </div>
+      <div class="subject" data-url="https://youtu.be/ojzGKTwHeeo?si=zviXtjUW-Ma_2Xoa">
+        <i class="fas fa-globe-americas icon"></i>
+        <h3>Gravitation</h3>
+      </div>
 
-            <div id="chapter-selection" class="chapter-selection hidden">
-                <button class="back-btn" onclick="backToSubjects()">
-                    <i class="fas fa-arrow-left"></i> Back to Subjects
-                </button>
-                <h3 id="selected-subject-title"></h3>
-                <div id="chapters-list" class="chapters-grid"></div>
-            </div>
+      <div class="subject" data-url="https://youtu.be/yg3ibqiKFwI?si=o5bjEzD2M8pqEQLS">
+        <i class="fas fa-cogs icon"></i>
+        <h3>Mechanical Properties of Solids</h3>
+      </div>
 
-            <div id="test-container" class="test-container hidden">
-                <div class="test-header">
-                    <button class="back-btn" onclick="backToChapters()">
-                        <i class="fas fa-arrow-left"></i> Back
-                    </button>
-                    <div class="test-info">
-                        <h3 id="test-title"></h3>
-                        <p id="test-subtitle"></p>
-                    </div>
-                    <div class="test-progress">
-                        <span id="progress-text">Question 0/15</span>
-                    </div>
-                </div>
+      <div class="subject" data-url="https://youtu.be/FbBZf_IsSug?si=wzgtaxfrdtSj3A6R">
+        <i class="fas fa-thermometer-half icon"></i>
+        <h3>Thermal Properties of Matter</h3>
+      </div>
 
-                <form id="test-form">
-                    <div id="questions-container"></div>
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-check-circle"></i> Submit Test
-                    </button>
-                </form>
-            </div>
-        </section>
+      <div class="subject" data-url="https://youtu.be/LH-0UfpguJg?si=JQCTAKX_pg6iafTD">
+        <i class="fas fa-volume-up icon"></i>
+        <h3>Sound</h3>
+      </div>
 
-        <section id="syllabus-section" class="section">
-            <div class="section-header">
-                <h2><i class="fas fa-book-open"></i> Syllabus</h2>
-                <p>Internal Unit Test 1 - Syllabus Overview</p>
-            </div>
+      <div class="subject" data-url="https://youtu.be/QZnJ6Z0N-bw?si=9JwJuASZTcv87tYl">
+        <i class="fas fa-lightbulb icon"></i>
+        <h3>Optics</h3>
+      </div>
 
-            <div class="syllabus-grid">
-                <div class="syllabus-card">
-                    <div class="syllabus-header physics-bg">
-                        <i class="fas fa-atom"></i>
-                        <h3>Physics</h3>
-                    </div>
-                    <div class="syllabus-content">
-                        <div class="syllabus-item">
-                            <h4>Chapter 1: Units and Measurement</h4>
-                            <p>Textual 1.1 to 1.2.3 and 1.6</p>
-                        </div>
-                        <div class="syllabus-item">
-                            <h4>Chapter 2: Mathematical Methods</h4>
-                            <p>Textual 2.1 to 2.3.3</p>
-                        </div>
-                        <div class="syllabus-item">
-                            <h4>Chapter 4: Laws of Motion</h4>
-                            <p>Textual 4.3 to 4.3.3 and examples</p>
-                        </div>
-                        <div class="syllabus-item">
-                            <h4>Chapter 12: Magnetism</h4>
-                            <p>Complete chapter</p>
-                        </div>
-                        <div class="pattern-info">
-                            <strong>Paper Pattern:</strong> All questions MCQ based (25 Marks)
-                        </div>
-                    </div>
-                </div>
+      <div class="subject" data-url="https://youtu.be/uMwUqURFBS4?si=WdP0zR7F6HGFjhmf">
+        <i class="fas fa-bolt icon"></i>
+        <h3>Electrostatics</h3>
+      </div>
 
-                <div class="syllabus-card">
-                    <div class="syllabus-header chemistry-bg">
-                        <i class="fas fa-flask"></i>
-                        <h3>Chemistry</h3>
-                    </div>
-                    <div class="syllabus-content">
-                        <div class="syllabus-item">
-                            <h4>1. Basic Principles in Chemistry</h4>
-                        </div>
-                        <div class="syllabus-item">
-                            <h4>2. Basic Principles in Organic Chemistry</h4>
-                        </div>
-                        <div class="syllabus-item">
-                            <h4>3. Chemical Bonding</h4>
-                            <p>Till Hybridization</p>
-                        </div>
-                        <div class="syllabus-item">
-                            <h4>4. Adsorption and Colloids</h4>
-                        </div>
-                        <div class="pattern-info">
-                            <strong>Paper Pattern:</strong> MCQ Based - Choose one correct answer
-                        </div>
-                    </div>
-                </div>
+      <div class="subject" data-url="https://youtu.be/TsG6d2VWuKA?si=4Gr23KMnlKyMbKth">
+        <i class="fas fa-bolt icon"></i>
+        <h3>Electric Current Through Conductors</h3>
+      </div>
 
-                <div class="syllabus-card">
-                    <div class="syllabus-header math-bg">
-                        <i class="fas fa-calculator"></i>
-                        <h3>Mathematics</h3>
-                    </div>
-                    <div class="syllabus-content">
-                        <div class="syllabus-item">
-                            <h4>Part 1: Measures of Dispersion</h4>
-                        </div>
-                        <div class="syllabus-item">
-                            <h4>Part 2: Sets and Relation</h4>
-                        </div>
-                        <div class="pattern-info">
-                            <strong>Paper Pattern:</strong> MCQ Based - Choose one correct answer
-                        </div>
-                    </div>
-                </div>
+      <div class="subject" data-url="https://youtu.be/WDN0lw7gogM?si=vh6swApNE0I7pCBX">
+        <i class="fas fa-magnet icon"></i>
+        <h3>Magnetism</h3>
+      </div>
 
-                <div class="syllabus-card">
-                    <div class="syllabus-header biology-bg">
-                        <i class="fas fa-dna"></i>
-                        <h3>Biology</h3>
-                    </div>
-                    <div class="syllabus-content">
-                        <div class="syllabus-item">
-                            <h4>Chapter 1: Living World</h4>
-                        </div>
-                        <div class="syllabus-item">
-                            <h4>Chapter 3: Kingdom Plantae</h4>
-                        </div>
-                        <div class="syllabus-item">
-                            <h4>Chapter 5: Cell Structure and Organization</h4>
-                        </div>
-                        <div class="syllabus-item">
-                            <h4>Chapter 15: Excretion and Osmoregulation</h4>
-                        </div>
-                        <div class="pattern-info">
-                            <strong>Paper Pattern:</strong> MCQ Based
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+      <div class="subject" data-url="https://youtu.be/8TnzQkZrztQ?si=x7YhxF4a2ydVZt_A">
+        <i class="fas fa-wave-square icon"></i>
+        <h3>Electromagnetic Waves & Communication System</h3>
+      </div>
 
-    <div id="result-modal" class="modal">
-        <div class="modal-content">
-            <div class="result-header">
-                <i class="fas fa-trophy"></i>
-                <h2>Test Results</h2>
-            </div>
-            <div class="result-stats">
-                <div class="stat-card">
-                    <div class="stat-icon correct">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="correct-count">0</h3>
-                        <p>Correct</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon incorrect">
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="incorrect-count">0</h3>
-                        <p>Incorrect</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon percentage">
-                        <i class="fas fa-percent"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3 id="percentage">0%</h3>
-                        <p>Score</p>
-                    </div>
-                </div>
-            </div>
-            <div id="detailed-results" class="detailed-results"></div>
-            <div class="modal-actions">
-                <button class="btn-primary" onclick="closeResultModal()">
-                    <i class="fas fa-check"></i> Close
-                </button>
-                <button class="btn-secondary" onclick="retakeTest()">
-                    <i class="fas fa-redo"></i> Retake Test
-                </button>
-            </div>
-        </div>
+      <div class="subject" data-url="https://www.youtube.com/live/YTmtAuItIfY?si=5hI8D5R7CBGLDbVG">
+        <i class="fas fa-microchip icon"></i>
+        <h3>Semiconductors</h3>
+      </div>
     </div>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Elphinstone College - FYJC Test Portal | Best of Luck! <i class="fas fa-heart"></i></p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
